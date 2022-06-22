@@ -1,5 +1,6 @@
 package com.example.library.controller;
 
+import DTO.ArticleDTO;
 import com.example.library.model.Article;
 import com.example.library.model.Color;
 import com.example.library.model.User;
@@ -17,13 +18,13 @@ public class ArticleController {
     private ArticleServiseImpl articleServiseImpl;
 
     @PostMapping("/articles")
-    public Article article(
-            @RequestBody Article article)
+    public ArticleDTO articleDTO(
+            @RequestBody ArticleDTO articleDTO)
     {
-        return articleServiseImpl.saveArticle(article);
+        return articleServiseImpl.saveArticle(articleDTO);
     }
     @GetMapping("/articles")
-    public List<Article> getAllArticle() {
+    public List<ArticleDTO> getAllArticle() {
 
         return articleServiseImpl.getAllArticles();
     }

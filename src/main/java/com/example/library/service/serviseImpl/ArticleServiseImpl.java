@@ -1,5 +1,6 @@
 package com.example.library.service.serviseImpl;
 
+import DTO.ArticleDTO;
 import com.example.library.model.Article;
 import com.example.library.model.Color;
 import com.example.library.model.User;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ArticleServiseImpl implements ArticleServise {
@@ -19,18 +21,33 @@ public class ArticleServiseImpl implements ArticleServise {
     ArticleRepository articleRepository;
 
     @Override
-    public Article saveArticle( Article article)
+    public ArticleDTO saveArticle( ArticleDTO articleDTO)
     {
-        return articleRepository.save(article);
+
+        return toDTO(articleRepository.save(toEntity(articleDTO)));
     }
 
     @Override
-    public List<Article> getAllArticles() {
+    public List<ArticleDTO> getAllArticles() {
         List<Article> articles = new ArrayList<>();
         articleRepository.findAll().forEach(articles::add);
-        return articles;
+        return articles.stream().map(x->toDTO(x)).collect(Collectors.toList());
     }
 
+    public static ArticleDTO toDTO(Article article) {
+        return ArticleDTO.builder()
+                .id(article.getId())
+                .text(article.getText())
+                .color(article.getColor())
+                .build();
+    }
+    public static Article toEntity(ArticleDTO articleDTO) {
+        return Article.builder()
+                .id(articleDTO.getId())
+                .text(articleDTO.getText())
+                .color(articleDTO.getColor())
+                .build();
 
+    }
 
 }

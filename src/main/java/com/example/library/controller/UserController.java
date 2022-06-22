@@ -1,5 +1,6 @@
 package com.example.library.controller;
 
+import DTO.UserDTO;
 import com.example.library.model.Color;
 import com.example.library.model.User;
 import com.example.library.repository.UserRepository;
@@ -18,19 +19,20 @@ public class UserController {
 
     @Operation
     @PostMapping("/users")
-    public User user(
-            @RequestBody User user)
+    public UserDTO userDTO(
+            @RequestBody UserDTO userDTO)
     {
-        return userService.saveUser(user);
+        return userService.saveUser(userDTO);
     }
+
     @GetMapping("/users")
-    public List<User> getAllUser()
+    public List<UserDTO> getAllUser()
     {
         return userService.getAllUsers();
     }
 
     @GetMapping("/byAge/{age}")
-    public List<User> moreThanAge(@PathVariable int age)
+    public List<UserDTO> moreThanAge(@PathVariable int age)
     {
         return userService.moreThanAge(age);
     }
@@ -42,8 +44,8 @@ public class UserController {
     }
 
     @GetMapping("/byColor/{color}")
-    public List<User> findUserByColor(@PathVariable String color){
-        List<User> users = userService.findUserByColor(color);
+    public List<UserDTO> findUserByColor(@PathVariable String color){
+        List<UserDTO> users = userService.findUserByColor(color);
         return users;
     }
 }

@@ -19,7 +19,7 @@ public class UserController {
 
     @Operation
     @PostMapping("/users")
-    public UserDTO userDTO(
+    public UserDTO save(
             @RequestBody UserDTO userDTO)
     {
         return userService.saveUser(userDTO);

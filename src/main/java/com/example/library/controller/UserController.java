@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
@@ -32,7 +32,7 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/byAge/{age}")
+    @GetMapping("/moreThanAge/{age}")
     public List<UserDTO> moreThanAge(@PathVariable int age)
     {
         return userService.moreThanAge(age);

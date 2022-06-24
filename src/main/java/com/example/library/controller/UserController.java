@@ -8,11 +8,12 @@ import com.example.library.service.UserService;
 import com.example.library.service.serviseImpl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
     @Autowired
     private UserServiceImpl userService;

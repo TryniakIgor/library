@@ -1,7 +1,6 @@
 package com.example.library.service;
 
-import DTO.ArticleDTO;
-import com.example.library.model.Article;
+import com.example.library.DTO.ArticleDTO;
 
 import java.util.List;
 

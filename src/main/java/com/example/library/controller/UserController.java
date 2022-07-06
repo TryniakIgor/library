@@ -1,14 +1,9 @@
 package com.example.library.controller;
 
-import DTO.UserDTO;
-import com.example.library.model.Color;
-import com.example.library.model.User;
-import com.example.library.repository.UserRepository;
-import com.example.library.service.UserService;
+import com.example.library.DTO.UserDTO;
 import com.example.library.service.serviseImpl.UserServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

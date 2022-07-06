@@ -1,4 +1,4 @@
-package DTO;
+package com.example.library.DTO;
 
 import com.example.library.model.Color;
 import lombok.AllArgsConstructor;

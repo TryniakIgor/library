@@ -8,10 +8,12 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = "name")})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,6 +24,11 @@ public class User {
     private int id;
     @Column(name="name")
     private String name;
+    @Column(name="user_name")
+    private String userName;
+    private String password;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Role> roles = new ArrayList<>();
     @Column(name="age")
     private int age;
     @OneToMany(fetch = FetchType.LAZY)

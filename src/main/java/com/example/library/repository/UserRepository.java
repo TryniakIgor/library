@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-
+        User findByUserName(String userName);
 
         @Query(value = "select distinct u.name from User u where (select count (a) from Article a where a.user.id = u.id) > 2 ")
         public List<String> moreThanThreeArticles ();

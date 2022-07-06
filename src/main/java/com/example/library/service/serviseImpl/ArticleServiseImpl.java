@@ -1,13 +1,10 @@
 package com.example.library.service.serviseImpl;
 
-import DTO.ArticleDTO;
+import com.example.library.DTO.ArticleDTO;
 import com.example.library.model.Article;
-import com.example.library.model.Color;
-import com.example.library.model.User;
 import com.example.library.repository.ArticleRepository;
 import com.example.library.service.ArticleServise;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

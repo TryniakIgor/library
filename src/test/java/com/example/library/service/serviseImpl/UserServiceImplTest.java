@@ -1,6 +1,6 @@
 package com.example.library.service.serviseImpl;
 
-import DTO.UserDTO;
+import com.example.library.DTO.UserDTO;
 import com.example.library.model.User;
 import com.example.library.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;

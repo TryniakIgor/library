@@ -1,4 +1,4 @@
-package DTO;
+package com.example.library.DTO;
 
 public enum Color {
     RED,

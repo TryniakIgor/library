@@ -1,6 +1,6 @@
 package com.example.library.service.serviseImpl;
 
-import DTO.UserDTO;
+import com.example.library.DTO.UserDTO;
 import com.example.library.model.Color;
 import com.example.library.model.User;
 import com.example.library.repository.UserRepository;
@@ -15,8 +15,6 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
-
-
 
     @Override
     public UserDTO saveUser(UserDTO userDTO){
@@ -49,6 +47,8 @@ public class UserServiceImpl implements UserService {
     public static UserDTO toDTO(User user) {
         return UserDTO.builder()
                 .id(user.getId())
+                .userName(user.getUserName())
+                .password(user.getPassword())
                 .name(user.getName())
                 .age(user.getAge())
                 .build();
@@ -57,6 +57,8 @@ public class UserServiceImpl implements UserService {
         return User.builder()
                 .id(userDTO.getId())
                 .name(userDTO.getName())
+                .userName(userDTO.getUserName())
+                .password(userDTO.getPassword())
                 .age(userDTO.getAge())
                 .build();
 

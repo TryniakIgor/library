@@ -1,12 +1,9 @@
 package com.example.library.controller;
 
-import DTO.ArticleDTO;
-import com.example.library.model.Article;
-import com.example.library.model.Color;
-import com.example.library.model.User;
-import com.example.library.service.ArticleServise;
+import com.example.library.DTO.ArticleDTO;
 import com.example.library.service.serviseImpl.ArticleServiseImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,15 +15,15 @@ public class ArticleController {
     private ArticleServiseImpl articleServiseImpl;
 
     @PostMapping("/articles")
-    public ArticleDTO articleDTO(
+    public ResponseEntity<ArticleDTO> saveArticle (
             @RequestBody ArticleDTO articleDTO)
     {
-        return articleServiseImpl.saveArticle(articleDTO);
+        return ResponseEntity.ok().body(articleServiseImpl.saveArticle(articleDTO));
     }
     @GetMapping("/articles")
-    public List<ArticleDTO> getAllArticle() {
+    public ResponseEntity<List<ArticleDTO>> getAllArticle() {
 
-        return articleServiseImpl.getAllArticles();
+        return ResponseEntity.ok().body(articleServiseImpl.getAllArticles());
     }
 
 }

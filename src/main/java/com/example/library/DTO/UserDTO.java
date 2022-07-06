@@ -1,4 +1,4 @@
-package DTO;
+package com.example.library.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,5 +12,7 @@ import lombok.NoArgsConstructor;
 public class UserDTO {
     private int id;
     private String name;
+    private String userName;
+    private String password;
     private int age;
 }
